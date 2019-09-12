@@ -65,21 +65,21 @@ $(function() {
             expect(contains).toBe(true);
         })
 
-
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
-        //  it('toggle menu', function() {
-        //     const body = document.querySelector("body"); 
-        //     const contains = body.classList.contains('menu-hidden'); 
-        //     expect(contains).toBe(true);
-        //     expect(contains).toBe(true);
-        // }) 
-
-
-
+          * clicked and does it hide when clicked again.*/
+        
+        it('toggle menu', function() {
+            const body = document.querySelector('body');
+            const icon = document.querySelector('.menu-icon-link'); 
+            const contains = body.classList.contains('menu-hidden'); 
+            icon.click();
+            expect(contains).toBe(false);
+            
+            icon.click();  
+            expect(contains).toBe(true);
+        });
     })
 
 
