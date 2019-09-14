@@ -71,7 +71,7 @@ $(function() {
         
         // Used jQuery
 
-        it('working toggle on click event', function () {
+        it('working toggle on click', function () {
             $('.menu-icon-link').trigger('click');
             expect($('body').hasClass('menu-hidden')).toBe(false);
             $('.menu-icon-link').trigger('click');
@@ -79,20 +79,60 @@ $(function() {
         });
     })
 
-
-    /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
+         * 
+         * 
+         * Write a test that ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container
+            How does Jasmine's beforeEach()function work?
+            How does the loadFeed() function in app.js work? Is it synchronous or asynchronous?
          */
+
+        // function loadFeed(id, cb) {
+        //     var feedUrl = allFeeds[id].url,
+        //         feedName = allFeeds[id].name;
+
+        
+        beforeEach(function(done) {
+            loadFeed(1, done);
+        })
+
+        it('loadFeed completed', function(done) {
+            let container = document.querySelector('div.feed');
+            expect(container.children.length).toBeGreaterThan(0);
+            done();
+        })
+
+    })
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+    // describe('New Feed Selection', function() {
 
         /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
+         * by the loadFeed function that the content actually changes. How is this test different from the previous test?
+         * Remember, loadFeed() is asynchronous.    
          */
+
+        // beforeEach(function(done) {
+        //     loadFeed(function() {
+        //         done(); 
+        //     })
+        // })
+
+        // it('new feed is loaded', function(done) {
+        //     expect(container.length).toBeGreaterThan(0);
+        //     done();
+        // })
+    // })
+
+    
+    
+
+
+     
 }());
