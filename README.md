@@ -31,7 +31,7 @@ For more information about how to install Jasmine, please click here: [Jasmine](
 ## Authors
 
 * **Udacity** - This repository included a starter code for all Udacity students. 
-* **Debora Galeano** - Object-oriented features; classes and methods.  
+* **Debora Galeano** - Test suites on feedreader.js.  
 
 ## Acknowledgments
 
