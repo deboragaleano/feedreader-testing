@@ -42,8 +42,9 @@ $(function() {
     describe('Initial Entries', function() {
         let container = document.querySelector('div.feed');
 
+        // Asynchronous test
         beforeEach(function(done) {
-            loadFeed(1, done);
+            loadFeed(0, done);
         })
 
         it('has a feed in container', function(done) {
@@ -55,13 +56,13 @@ $(function() {
      /*Ensures that a new feed is loaded and that the content actually changes*/
     describe('New Feed Selection', function() {
         let container = document.querySelector('div.feed');
-        let firstFeed, secondFeed; 
+        let firstFeed, secondFeed; //global scope to be able to access these variables later
 
         beforeEach(function(done) {
-            loadFeed(1, function() {
+            loadFeed(0, function() {
                 // gets first copy of the feed's HTML when it's loaded
                 firstFeed = container.innerHTML;
-                loadFeed(2, function() {
+                loadFeed(1, function() {
                     // gets second copy 
                     secondFeed = container.innerHTML;
                     done(); 
@@ -69,7 +70,7 @@ $(function() {
             })  
         })
 
-        it('new feed is loaded', function() {
+        it('new feed is loaded and content changes', function() {
             expect(firstFeed).not.toBe(secondFeed);
         });
     });
