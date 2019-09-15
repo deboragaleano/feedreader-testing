@@ -10,7 +10,6 @@ The project tests the underlying business logic of the application as well as th
 
 * [Installation](#installation) 
 * [Built With](#built-with)
-* [How to Play](#how-to-play)
 * [Authors](#authors)
 * [Acknowledgments](#acknowledgments)
 
