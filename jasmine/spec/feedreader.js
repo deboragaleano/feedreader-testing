@@ -80,59 +80,49 @@ $(function() {
     })
 
     describe('Initial Entries', function() {
+        let container = document.querySelector('div.feed');
 
-        /* TODO: Write a test that ensures when the loadFeed
+        /* Done: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
-         * 
-         * 
-         * Write a test that ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container
-            How does Jasmine's beforeEach()function work?
-            How does the loadFeed() function in app.js work? Is it synchronous or asynchronous?
          */
 
-        // function loadFeed(id, cb) {
-        //     var feedUrl = allFeeds[id].url,
-        //         feedName = allFeeds[id].name;
-
-        
         beforeEach(function(done) {
             loadFeed(1, done);
         })
 
-        it('loadFeed completed', function(done) {
-            let container = document.querySelector('div.feed');
+        it('has a feed in container', function(done) {
             expect(container.children.length).toBeGreaterThan(0);
             done();
         })
 
     })
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
-    // describe('New Feed Selection', function() {
+    describe('New Feed Selection', function() {
+        let container = document.querySelector('div.feed');
+        /* Done: Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes. How is this test different from the previous test? Remember, loadFeed() is asynchronous. */
+        let firstFeed, secondFeed; 
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes. How is this test different from the previous test?
-         * Remember, loadFeed() is asynchronous.    
-         */
+        beforeEach(function(done) {
+            loadFeed(3, function() {
+                firstFeed = container.innerHTML;
+                loadFeed(2, function() {
+                    secondFeed = container.innerHTML;
+                    done(); 
+                }); 
+            })  
+        })
 
-        // beforeEach(function(done) {
-        //     loadFeed(function() {
-        //         done(); 
-        //     })
-        // })
-
-        // it('new feed is loaded', function(done) {
-        //     expect(container.length).toBeGreaterThan(0);
-        //     done();
-        // })
-    // })
-
-    
-    
-
+        it('new feed is loaded', function() {
+            // let container = document.querySelector('div.feed');
+            // let entry = document.querySelector('article.entry'); 
+            expect(firstFeed).not.toBe(secondFeed);
+            // done();
+        });
+    });
 
      
 }());
