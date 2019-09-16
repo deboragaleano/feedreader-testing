@@ -40,16 +40,15 @@ $(function() {
 
     /* Ensures that the loadFeed function works and that it has at least 1 entry in the container*/
     describe('Initial Entries', function() {
-        let container = document.querySelector('div.feed');
+        // let container = document.querySelector('div.feed');
 
         // Asynchronous test
         beforeEach(function(done) {
             loadFeed(0, done);
         })
 
-        it('has a feed in container', function(done) {
-            expect(container.children.length).toBeGreaterThan(0);
-            done();
+        it('at least 1 feed in container', function() {
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         })
     })
 
