@@ -1,6 +1,7 @@
 # Feed Reader Testing 
 
-This project is a web-based application that reads RSS feeds and it applies a test-driven development approach. 
+This project is a web-based application that reads RSS feeds and it applies a test-driven development approach.
+
 It uses the JavaScript Testing Framework [Jasmine](http://jasmine.github.io/). 
 
 ## Table of Contents
